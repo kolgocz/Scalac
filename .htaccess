@@ -1,0 +1,18 @@
+//301 Redirect Entire Directory
+RedirectMatch 301 blog.scalac.io(.*) scalac.io/blog/$1
+
+//Password Protect file
+<Files restricted>
+AuthName "Prompt"
+AuthType Basic
+AuthUserFile https://github.com/kolgocz/ScalacTasks/blob/master/.htpasswd
+Require valid-user
+</Files>
+
+//Custom 404 errors
+ErrorDocument 404 http://localhost/custom-404-error.html
+
+//Block users by IP
+order allow,deny
+deny from 3.121.4.52
+allow from 
